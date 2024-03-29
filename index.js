@@ -9,13 +9,24 @@ const addUser = require('./src/routes/addUser/index')
 const allUsers = require('./src/routes/allUsers/index');
 const allForms = require('./src/routes/allForms/index')
 const createForm = require('./src/routes/createForm/index')
-
+const singleUserForms = require('./src/routes/singleUserForms/index')
+const formDetails = require('./src/routes/formDetails/index')
+const deleteForm = require('./src/routes/deleteForm/index')
+const updateForm = require('./src/routes/updateForm/index')
+const singleUserData = require('./src/routes/singleUserData/index')
+const updateUserData = require('./src/routes/updateUserData/index')
 const applyMiddleWare = require('./src/middlewares/applyMiddlewares');
 applyMiddleWare(app)
 app.use(addUser)
+app.use(singleUserData)
+app.use(updateUserData)
 app.use(allUsers)
 app.use(allForms)
 app.use(createForm)
+app.use(singleUserForms)
+app.use(formDetails)
+app.use(deleteForm)
+app.use(updateForm)
 app.all("*", (req, res, next) => {
     const error = new Error(`The requested Url is invalid : [${req?.url}]`)
     error.status = 404;

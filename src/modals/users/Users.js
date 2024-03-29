@@ -12,6 +12,15 @@ const UsersSchema = new Schema({
     image: {
         type: String,
         required: true
+    },
+    age: {
+        type: Number,
+    },
+    country: {
+        type: String
+    },
+    contactNumber: {
+        type: Number
     }
 })
 
