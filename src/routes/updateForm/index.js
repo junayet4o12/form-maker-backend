@@ -8,7 +8,8 @@ router.put('/updateForm/:id', async (req, res) => {
     const updatedData = {
         title: data?.title,
         description: data?.description,
-        inputFields: data?.fields
+        inputFields: data?.fields,
+        formBgImg: data?.formBgImg
     }
     const result = await Forms.findByIdAndUpdate(id, updatedData, { new: true })
     res.send(result)

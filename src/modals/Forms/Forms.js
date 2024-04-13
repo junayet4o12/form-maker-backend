@@ -20,6 +20,10 @@ const formsSchema = ({
     createdDate: {
         type: Number,
         required: true
+    },
+    formBgImg: {
+        type: String,
+        required: true
     }
 })
 
