@@ -4,7 +4,7 @@ const storedDataSchema = new Schema({
     ownerEmail: {
         type: String,
         required: true
-    },
+    }, 
     formId: {
         type: String,
         required: true
