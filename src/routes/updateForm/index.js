@@ -1,7 +1,8 @@
 var express = require('express');
 const Forms = require('../../modals/Forms/Forms');
+const verifyToken = require('../../middlewares/verifyToken');
 var router = express.Router();
-router.put('/updateForm/:id', async (req, res) => {
+router.put('/updateForm/:id', verifyToken, async (req, res) => {
     const id = req.params.id
     const data = req.body;
     console.log(data?.fields);

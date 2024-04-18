@@ -5,6 +5,7 @@ const connectDB = require('./src/DB/connectDB');
 const port = process.env.PORT || 3000;
 require('dotenv').config()
 
+const jwt = require('./src/routes/jwt/index')
 const addUser = require('./src/routes/addUser/index')
 const allUsers = require('./src/routes/allUsers/index');
 const allForms = require('./src/routes/allForms/index')
@@ -18,8 +19,11 @@ const updateUserData = require('./src/routes/updateUserData/index')
 const allData = require('./src/routes/AllData/index')
 const storeData = require('./src/routes/storeData/index')
 const singleUserFormData = require('./src/routes/singleUsersFormData/index')
+const formDetailsForUpdateAndDelete = require('./src/routes/FormDetailsForUpdateAndDelete/index');
+const fillUpFormDetails = require('./src/routes/fillUpFormDetails/index');
 const applyMiddleWare = require('./src/middlewares/applyMiddlewares');
 applyMiddleWare(app)
+app.use(jwt)
 app.use(addUser)
 app.use(singleUserData)
 app.use(updateUserData)
@@ -33,6 +37,8 @@ app.use(updateForm)
 app.use(allData)
 app.use(storeData)
 app.use(singleUserFormData)
+app.use(formDetailsForUpdateAndDelete)
+app.use(fillUpFormDetails)
 app.all("*", (req, res, next) => {
     const error = new Error(`The requested Url is invalid : [${req?.url}]`)
     error.status = 404;
