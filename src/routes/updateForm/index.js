@@ -10,7 +10,11 @@ router.put('/updateForm/:id', verifyToken, async (req, res) => {
         title: data?.title,
         description: data?.description,
         inputFields: data?.fields,
-        formBgImg: data?.formBgImg
+        formBgImg: data?.formBgImg,
+        enabledDate: data?.enabledDate,
+        enabledTime: data?.enabledTime,
+        disabledDate: data?.disabledDate,
+        disabledTime: data?.disabledTime
     }
     const result = await Forms.findByIdAndUpdate(id, updatedData, { new: true })
     res.send(result)

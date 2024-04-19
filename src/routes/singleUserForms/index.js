@@ -5,6 +5,7 @@ var router = express.Router();
 router.get('/singleUserForm/:email', verifyToken, async (req, res) => {
     const query = { userEmail: req.params.email }
     const result = await Forms.find(query)
-    res.send(result)
+    const reverseData = result.reverse()
+    res.send(reverseData)
 })
 module.exports = router

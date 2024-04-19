@@ -24,8 +24,23 @@ const formsSchema = new Schema({
     formBgImg: {
         type: String,
         required: true
-    }
+    },
+    enabledDate: {
+        type: String,
+        required: true
+    },
+    enabledTime: {
+        type: String,
+        required: true
+    },
+    disabledDate: {
+        type: String,
+        required: true
+    },
+    disabledTime: {
+        type: String,
+        required: true
+    },
 })
-
 const Forms = model('Forms', formsSchema);
 module.exports = Forms;

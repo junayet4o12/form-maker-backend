@@ -10,6 +10,7 @@ router.get('/singleUserFormData/:id/:email', verifyToken, async (req, res) => {
         ownerEmail: email
     }
     const result = await StoredData.find(query);
+
     res.send(result)
 })
 module.exports = router
