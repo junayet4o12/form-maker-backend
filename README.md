@@ -9,10 +9,10 @@ Welcome to Formify, the ultimate web page for creating your own forms and collec
 To run the app locally or in a production environment, ensure the following environment variables are set in .env file:
 
 - **MongoDB Environment Variables:** Provide MongoDB uri for connecting DB to the project..
-  DB_URI
+<br> DB_URI
 
 - **JWT Environment Variables:** Provide JWT token secret for using JWT..
-  ACCESS_TOKEN_SECRET
+<br> ACCESS_TOKEN_SECRET
 
 
 ## Getting Started
