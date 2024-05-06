@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const connectDB = require('./src/DB/connectDB');
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 require('dotenv').config()
 
 const jwt = require('./src/routes/jwt/index')
@@ -15,7 +15,6 @@ const formDetails = require('./src/routes/formDetails/index')
 const deleteForm = require('./src/routes/deleteForm/index')
 const updateForm = require('./src/routes/updateForm/index')
 const singleUserData = require('./src/routes/singleUserData/index')
-const singleUserDataById = require('./src/routes/singleUserDataById/index')
 const updateUserData = require('./src/routes/updateUserData/index')
 const allData = require('./src/routes/AllData/index')
 const storeData = require('./src/routes/storeData/index')
@@ -30,7 +29,6 @@ applyMiddleWare(app)
 app.use(jwt)
 app.use(addUser)
 app.use(singleUserData)
-app.use(singleUserDataById)
 app.use(updateUserData)
 app.use(allUsers)
 app.use(allForms)
