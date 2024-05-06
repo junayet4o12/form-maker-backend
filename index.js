@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const connectDB = require('./src/DB/connectDB');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 require('dotenv').config()
 
 const jwt = require('./src/routes/jwt/index')
@@ -15,6 +15,7 @@ const formDetails = require('./src/routes/formDetails/index')
 const deleteForm = require('./src/routes/deleteForm/index')
 const updateForm = require('./src/routes/updateForm/index')
 const singleUserData = require('./src/routes/singleUserData/index')
+const singleUserDataById = require('./src/routes/singleUserDataById/index')
 const updateUserData = require('./src/routes/updateUserData/index')
 const allData = require('./src/routes/AllData/index')
 const storeData = require('./src/routes/storeData/index')
@@ -22,10 +23,14 @@ const singleUserFormData = require('./src/routes/singleUsersFormData/index')
 const formDetailsForUpdateAndDelete = require('./src/routes/FormDetailsForUpdateAndDelete/index');
 const fillUpFormDetails = require('./src/routes/fillUpFormDetails/index');
 const applyMiddleWare = require('./src/middlewares/applyMiddlewares');
+const fillUpData = require('./src/routes/fillingUpForm/index')
+const fillingUpFormUserData = require('./src/routes/fillingUpFormData/index')
+const removeFillingUpFormData = require('./src/routes/removeFillingUpFormData/index')
 applyMiddleWare(app)
 app.use(jwt)
 app.use(addUser)
 app.use(singleUserData)
+app.use(singleUserDataById)
 app.use(updateUserData)
 app.use(allUsers)
 app.use(allForms)
@@ -39,6 +44,9 @@ app.use(storeData)
 app.use(singleUserFormData)
 app.use(formDetailsForUpdateAndDelete)
 app.use(fillUpFormDetails)
+app.use(fillUpData)
+app.use(fillingUpFormUserData)
+app.use(removeFillingUpFormData)
 app.all("*", (req, res, next) => {
     const error = new Error(`The requested Url is invalid : [${req?.url}]`)
     error.status = 404;

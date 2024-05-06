@@ -5,7 +5,6 @@ var router = express.Router();
 router.put('/updateForm/:id', verifyToken, async (req, res) => {
     const id = req.params.id
     const data = req.body;
-    console.log(data?.fields);
     const updatedData = {
         title: data?.title,
         description: data?.description,

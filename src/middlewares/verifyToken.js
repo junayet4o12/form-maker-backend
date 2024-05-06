@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config()
 const verifyToken = (req, res, next) => {
-    console.log('inside verified token', req.headers.authorization);
     if (!req?.headers?.authorization) {
         return res.status(401).send({ message: 'unauthorized' })
     }

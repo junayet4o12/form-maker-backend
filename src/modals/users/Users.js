@@ -20,7 +20,10 @@ const UsersSchema = new Schema({
         type: String
     },
     contactNumber: {
-        type: Number
+        type: String
+    },
+    fillingUpForm : {
+        type: Array
     }
 })
 
