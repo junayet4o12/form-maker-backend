@@ -19,7 +19,7 @@ const updateUserData = require('./src/routes/updateUserData/index')
 const allData = require('./src/routes/AllData/index')
 const storeData = require('./src/routes/storeData/index')
 const singleUserFormData = require('./src/routes/singleUsersFormData/index')
-const singleUserFormDataForViewers = require('./src/routes/singleUserFormDataForViewer')
+const singleUserFormForViewers = require('./src/routes/singleUserFormForViewer')
 const formDetailsForUpdateAndDelete = require('./src/routes/FormDetailsForUpdateAndDelete/index');
 const fillUpFormDetails = require('./src/routes/fillUpFormDetails/index');
 const applyMiddleWare = require('./src/middlewares/applyMiddlewares');
@@ -45,7 +45,7 @@ app.use(removeViewers)
 app.use(allData)
 app.use(storeData)
 app.use(singleUserFormData)
-app.use(singleUserFormDataForViewers)
+app.use(singleUserFormForViewers)
 app.use(formDetailsForUpdateAndDelete)
 app.use(fillUpFormDetails)
 app.use(fillUpData)
