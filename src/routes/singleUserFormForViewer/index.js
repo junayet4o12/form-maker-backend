@@ -5,7 +5,6 @@ var router = express.Router();
 router.get('/singleUserFormForViewers/:email', verifyToken, async (req, res) => {
     const email = req.params.email;
     const yourFormsAsViewer = await Forms.find({ viewers: email });
-    console.log(yourFormsAsViewer);
     res.send(yourFormsAsViewer || []);
 })
 module.exports = router
