@@ -40,6 +40,12 @@ const formsSchema = new Schema({
         type: String,
         required: true
     },
+    viewers: {
+        type: Array
+    },
+    editors: {
+        type: Array
+    },
 })
 const Forms = model('Forms', formsSchema);
 module.exports = Forms;
